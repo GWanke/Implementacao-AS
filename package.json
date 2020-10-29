@@ -1,0 +1,23 @@
+{
+  "name": "implementacao-as",
+  "version": "1.0.0",
+  "description": "Implementacao do Front para a materia de Arquitetura de Software.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GWanke/Implementacao-AS.git"
+  },
+  "author": "Gustavo Rodrigues Wanke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GWanke/Implementacao-AS/issues"
+  },
+  "homepage": "https://github.com/GWanke/Implementacao-AS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
