@@ -16,3 +16,8 @@ app.get('/', (req, res) => {
   res.render('home.ejs')
 })
 
+app.route('/CadastroP')
+.get((req,res)=>{
+  res.render('CadastroP.ejs')
+})
+
