@@ -8,7 +8,7 @@
 <body>
     <h2>Registrar Paciente<h2>
     <form action="/confCad" method="POST">
-        <input type="text" placeholder="Nome Completo." name="nome" id = "noame" pattern="^[a-zA-Z]+$" required>
+        <input type="text" placeholder="Nome Completo." name="nome" id = "name" pattern="^[a-zA-Z]+$" required>
         <input type="text" placeholder="CPF(somente numeros)." name="CPF" id = "CPF" pattern = "^[0-9]{9}$" required>
         <input type="text" placeholder="RG(somente numeros)." name="RG" id = "RG" pattern = "^[0-9]{9}$" required> <br>
         <input type="email" placeholder="E-mail" name="email" id = "email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"required>
@@ -26,6 +26,5 @@
     </form>
     <br>
     <a href="/"> <button>Voltar</button></a>
-
 </body>
 </html>
