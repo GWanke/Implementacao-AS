@@ -2,7 +2,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express()
-
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.listen(3000,function(){
@@ -65,15 +64,24 @@ app.route('/')
 		if (login == "login2" && senha == "senha2"){
 			controleAcesso.setStrategy(user)
 		}
-		res.render(controleAcesso.prioridade.path())
+		res.redirect('home')
 })
 
 
 app.route('/CadastroP')       
-	.get((req,res)=>{
+	.get((req,res) => {
  		res.render('CadastroP.ejs');    //nao precisa de controle de acesso.
  	});
 
+app.route('/leituraP')
+	.get ((req,res) => {
+		res.render('leituraP.ejs');
+	});
+
+
+app.get('/home', (req,res) => {
+ 	res.render(controleAcesso.prioridade.path());
+});
 
 app.route('/confCad')
 	.post((req, res,next) => {

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Listagem de Pacientes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #d3d3d3;
+}
+.btn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+
+<h2>Pacientes</h2>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>CPF</th>
+    <th>RG</th>
+    <th>E-mail</th>
+    <th>Data de Nascimento</th>
+    <th>Convênio</th>
+    <th>Ações</th>
+  </tr>
+  <tr>
+    <td>Fedro dos Santos</td> 
+    <td>08495307090</td>
+    <td>072040356</td>
+    <td>F_Santos@hotmail.com</td>
+    <td>28/03/1984</td>
+    <td>Unimed</td>
+    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
+      <i class="fa fa-trash"></i></button>
+      <button class="btn" onclick = "window.location.href ='/editP';">
+      <i class="fa fa-edit " ></i></button></td>
+  </tr>
+  <tr>
+    <td>Alfredo de Lima Bueno</td>
+    <td>40409945721</td>
+    <td>567908432</td>
+    <td>ABueno@gmail.com</td>
+    <td>13/05/1994</td>
+    <td>Sulamerica</td>
+    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
+      <i class="fa fa-trash"></i></button>
+        <button class="btn" onclick = "window.location.href ='/editP';">
+      <i class="fa fa-edit " ></i></button></td>
+  </tr>
+  <tr>
+    <td>Pauliane de Freitas</td>
+    <td>87519538209</td>
+    <td>856328956</td>
+    <td>Freitas82@outlook.com</td>
+    <td>28/03/1982</td>
+    <td>-</td>
+    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
+          <i class="fa fa-trash"></i></button>
+        <button class="btn" onclick = "window.location.href ='/editP';">
+          <i class="fa fa-edit " ></i></button></td>
+  </tr>
+  <tr>
+    <td>Ramone Rodrigues de Souza</td>
+    <td>14598385392</td>
+    <td>096439862</td>
+    <td>RRS02@gmail.com</td>
+    <td>02/11/2005</td>
+    <td>Bradesco</td>
+    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
+        <i class="fa fa-trash"></i></button>
+      <button class="btn" onclick = "window.location.href ='/editP';">
+        <i class="fa fa-edit " ></i></button></td>
+  </tr>
+  <tr>
+    <td>Claudecir de Oliveira</td>
+    <td>87632189467</td>
+    <td>846291730</td>
+    <td>Oiveira72@uol.com.br</td>
+    <td>08/10/1972</td>
+    <td>Amil</td>
+    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
+          <i class="fa fa-trash"></i></button>
+        <button class="btn" onclick = "window.location.href ='/editP';">
+          <i class="fa fa-edit " ></i></button></td>
+  </tr>
+</table>
+<br>
+<a href="/home" method = "POST"><button>Voltar</button></a>
+</body>
+</html>
