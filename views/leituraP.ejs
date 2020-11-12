@@ -18,9 +18,9 @@ td, th {
   padding: 8px;
 }
 
-tr:nth-child(even) {
+/*tr:nth-child(even) {
   background-color: #d3d3d3;
-}
+}*/
 .btn {
   cursor: pointer;
   font-size: 16px;  
@@ -32,13 +32,17 @@ tr:nth-child(even) {
   font-family: inherit;
   margin: 0;
 }
+tr.desativo{
+  color: #d3d3d3;
+}
+
 </style>
 </head>
 <body>
 
 <h2>Pacientes</h2>
 
-<table>
+<table id = 'tabela' >
   <tr>
     <th>Nome</th>
     <th>CPF</th>
@@ -46,29 +50,32 @@ tr:nth-child(even) {
     <th>E-mail</th>
     <th>Data de Nascimento</th>
     <th>Convênio</th>
+    <th>Status</th>
     <th>Ações</th>
   </tr>
   <tr>
-    <td>Fedro dos Santos</td> 
+    <td>Alfredo de Lima Bueno</td> 
     <td>08495307090</td>
     <td>072040356</td>
-    <td>F_Santos@hotmail.com</td>
+    <td>ABuenoL@hotmail.com</td>
     <td>28/03/1984</td>
     <td>Unimed</td>
-    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
-      <i class="fa fa-trash"></i></button>
+    <td>Ativo</td>
+    <td><button class="btn" onclick = "mudaClasse(1,this)">  
+      <i class="fa fa-times-rectangle-o"></i></button>
       <button class="btn" onclick = "window.location.href ='/editP';">
       <i class="fa fa-edit " ></i></button></td>
   </tr>
   <tr>
-    <td>Alfredo de Lima Bueno</td>
+    <td>Fedro dos Santos</td>
     <td>40409945721</td>
     <td>567908432</td>
-    <td>ABueno@gmail.com</td>
+    <td>F_Santos@gmail.com</td>
     <td>13/05/1994</td>
     <td>Sulamerica</td>
-    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
-      <i class="fa fa-trash"></i></button>
+    <td>Ativo</td>
+    <td><button class="btn" onclick = "mudaClasse(2,this)">  
+        <i class="fa fa-times-rectangle-o"></i></button>
         <button class="btn" onclick = "window.location.href ='/editP';">
       <i class="fa fa-edit " ></i></button></td>
   </tr>
@@ -79,37 +86,52 @@ tr:nth-child(even) {
     <td>Freitas82@outlook.com</td>
     <td>28/03/1982</td>
     <td>-</td>
-    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
-          <i class="fa fa-trash"></i></button>
+    <td>Ativo</td>
+    <td><button class="btn" onclick = "mudaClasse(3,this)">  
+          <i class="fa fa-times-rectangle-o"></i></button>
         <button class="btn" onclick = "window.location.href ='/editP';">
           <i class="fa fa-edit " ></i></button></td>
   </tr>
-  <tr>
-    <td>Ramone Rodrigues de Souza</td>
+  <tr class="desativo">
+    <td>Claudecir de Oliveira</td>
     <td>14598385392</td>
     <td>096439862</td>
-    <td>RRS02@gmail.com</td>
+    <td>Oiveira72@uol.com.br</td>
     <td>02/11/2005</td>
     <td>Bradesco</td>
-    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
-        <i class="fa fa-trash"></i></button>
+    <td>Desativo</td>
+    <td><button class="btn" onclick = "mudaClasse(4,this)">  
+        <i class="fa fa-check-square-o"></i></button>
       <button class="btn" onclick = "window.location.href ='/editP';">
         <i class="fa fa-edit " ></i></button></td>
   </tr>
-  <tr>
-    <td>Claudecir de Oliveira</td>
+  <tr class="desativo">
+    <td>Ramone Rodrigues de Souza</td>
     <td>87632189467</td>
     <td>846291730</td>
-    <td>Oiveira72@uol.com.br</td>
+    <td>RRS02@gmail.com</td>
     <td>08/10/1972</td>
     <td>Amil</td>
-    <td><button class="btn" onclick = "window.location.href ='/deleteP';">  
-          <i class="fa fa-trash"></i></button>
+    <td>Desativo</td>
+    <td><button class="btn" onclick = "mudaClasse(5,this)">  
+          <i class="fa fa-check-square-o"></i></button>
         <button class="btn" onclick = "window.location.href ='/editP';">
           <i class="fa fa-edit " ></i></button></td>
   </tr>
 </table>
 <br>
 <a href="/home" method = "POST"><button>Voltar</button></a>
+<script>
+  function mudaClasse(linha,botao){ 
+    document.getElementById('tabela').rows[linha].classList.toggle('desativo');
+    if (document.getElementById('tabela').rows[linha].cells[6].innerHTML === 'Ativo'){
+      document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Desativo';
+      botao.innerHTML ='<i class="fa fa-check-square-o"></i>' 
+    } else {
+      document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Ativo';
+      botao.innerHTML ='<i class="fa fa-times-rectangle-o"></i>'
+    }
+  }
+</script>
 </body>
 </html>
