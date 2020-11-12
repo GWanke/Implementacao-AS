@@ -61,7 +61,7 @@ tr.desativo{
     <td>28/03/1984</td>
     <td>Unimed</td>
     <td>Ativo</td>
-    <td><button class="btn" onclick = "mudaClasse(1,this)">  
+    <td><button class="btn" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(1,this)'>  
       <i class="fa fa-times-rectangle-o"></i></button>
       <button class="btn" onclick = "window.location.href ='/editP';">
       <i class="fa fa-edit " ></i></button></td>
@@ -122,16 +122,17 @@ tr.desativo{
 <br>
 <a href="/home" method = "POST"><button>Voltar</button></a>
 <script>
-  function mudaClasse(linha,botao){ 
+  function mudaClasse(linha,botao){   
     document.getElementById('tabela').rows[linha].classList.toggle('desativo');
-    if (document.getElementById('tabela').rows[linha].cells[6].innerHTML === 'Ativo'){
-      document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Desativo';
-      botao.innerHTML ='<i class="fa fa-check-square-o"></i>' 
-    } else {
-      document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Ativo';
-      botao.innerHTML ='<i class="fa fa-times-rectangle-o"></i>'
+      if (document.getElementById('tabela').rows[linha].cells[6].innerHTML === 'Ativo'){
+        document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Desativo';
+        botao.innerHTML ='<i class="fa fa-check-square-o"></i>' 
+      }
+      else {
+        document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Ativo';
+        botao.innerHTML ='<i class="fa fa-times-rectangle-o"></i>'
+      }
     }
-  }
 </script>
 </body>
 </html>
