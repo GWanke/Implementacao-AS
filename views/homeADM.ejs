@@ -71,7 +71,7 @@
   <div class="dropdown-content" id="myDropdownP" >
     <a href="/CadastroP">Novo</a>  <!-- create -->
     <a href="/leituraP">Listagem</a> <!-- read -->
-    <a href="/leituraP">Histórico</a> <!-- edit -->
+    <a href="/editP">Histórico</a> <!-- edit -->
     </div>
   </div>
   <div class="dropdown">
@@ -158,29 +158,29 @@ function myFunction(tipo) {
 // fecha o DropDown se o user clicar fora dele.
 window.onclick = function(e) {
   if (!e.target.matches('.dropbtn')) {
-  var myDropdownP = document.getElementById("myDropdownP");
-  var myDropdownM =document.getElementById("myDropdownM");
-  var myDropdownE =document.getElementById("myDropdownE");
-  var myDropdownA =document.getElementById("myDropdownA");
-  var myDropdownF =document.getElementById("myDropdownF");
-  var myDropdownL =document.getElementById("myDropdownL")
-  var myDropdownRel = document.getElementById("myDropdownRel")
-    if (myDropdownP.classList.contains('show')) {
-      myDropdownP.classList.remove('show');
-  } if (myDropdownM.classList.contains('show')) {
-      myDropdownM.classList.remove('show');
-  } if (myDropdownE.classList.contains('show')) {
-      myDropdownE.classList.remove('show')
-  } if (myDropdownA.classList.contains('show')) {
-      myDropdownA.classList.remove('show')
-  } if (myDropdownF.classList.contains('show')) {
-      myDropdownF.classList.remove('show')
-  } if (myDropdownL.classList.contains('show')){
-      myDropdownL.classList.remove('show')
-  } if (myDropdownRel.classList.contains('show')){
-      myDropdownRel.classList.remove('show')
+    var myDropdownP = document.getElementById("myDropdownP");
+    var myDropdownM =document.getElementById("myDropdownM");
+    var myDropdownE =document.getElementById("myDropdownE");
+    var myDropdownA =document.getElementById("myDropdownA");
+    var myDropdownF =document.getElementById("myDropdownF");
+    var myDropdownL =document.getElementById("myDropdownL")
+    var myDropdownRel = document.getElementById("myDropdownRel")
+      if (myDropdownP.classList.contains('show')) {
+        myDropdownP.classList.remove('show');
+    } if (myDropdownM.classList.contains('show')) {
+        myDropdownM.classList.remove('show');
+    } if (myDropdownE.classList.contains('show')) {
+        myDropdownE.classList.remove('show')
+    } if (myDropdownA.classList.contains('show')) {
+        myDropdownA.classList.remove('show')
+    } if (myDropdownF.classList.contains('show')) {
+        myDropdownF.classList.remove('show')
+    } if (myDropdownL.classList.contains('show')){
+        myDropdownL.classList.remove('show')
+    } if (myDropdownRel.classList.contains('show')){
+        myDropdownRel.classList.remove('show')
+    }
   }
-}
 }
 </script>
 </body>

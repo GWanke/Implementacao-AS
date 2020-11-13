@@ -8,7 +8,6 @@ app.listen(3000,function(){
 	console.log ("servidor na porta 3000")
 })
 
-
 // Strategy Pattern para selecionar a prioridade do user para a exibicao de diferentes paginas.
 
 
@@ -24,7 +23,7 @@ ControleAcesso.prototype = {
 
 	path: function(){
 		return this.prioridade.path;
-	}
+	},
 };
 
 var Admin = function(){
@@ -85,12 +84,17 @@ app.route('/CadastroP')
 
 app.route('/leituraP')
 	.get ((req,res) => {
-		res.render('leituraP.ejs');
+		// passa a prioridade do user para o gerenciamento de funcionalidades.
+		res.render('leituraP.ejs',{prioridade:controleAcesso.prioridade.path().slice(4,-1).replace('.ej','').trim()});
 	});
 
 
 app.get('/home', (req,res) => {
  	res.render(controleAcesso.prioridade.path());
+});
+
+app.get('/editP', (req,res) => {
+	res.render('editP.ejs')
 });
 
 app.route('/confCad')
