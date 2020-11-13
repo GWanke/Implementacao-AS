@@ -33,12 +33,17 @@ var Admin = function(){
 	}
 };
 
-var User = function(){
+var Secreataria = function(){
 	this.path = function(){
-		return "homeUSER.ejs"
+		return "homeSecretaria.ejs"
 	}
-}
+};
 
+var AgenteExame = function(){
+	this.path = function(){
+		return "homeAGENTE.ejs"
+	}
+};
 
 
 app.set('view engine' , 'ejs');
@@ -52,17 +57,22 @@ app.route('/')
 	.get((req, res) => {
 		res.redirect('login')
 	})
+	//STRATEGY PATTERN APLICADO
 	.post((req,res) => {
 		var login = req.body.uname;
 			senha = req.body.psw;
 			controleAcesso = new ControleAcesso();
 			admin = new Admin();
-			user = new User();
+			secretaria = new Secreataria();
+			agente = new AgenteExame();
 		if (login == "login" && senha == "senha"){
 			controleAcesso.setStrategy(admin);
 		}
 		if (login == "login2" && senha == "senha2"){
-			controleAcesso.setStrategy(user)
+			controleAcesso.setStrategy(secretaria);
+		}
+		if (login == "login3" && senha == "senha3"){
+			controleAcesso.setStrategy(agente)
 		}
 		res.redirect('home')
 })
