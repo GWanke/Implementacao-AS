@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro Funcionários</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        .btn, .btn2 {
+                cursor: pointer;
+                font-size: 16px;  
+                border: none;
+                outline: none;
+                color: black;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+        input, select, textarea{
+            color:#C0C0C0;
+        }
+        textarea:focus, input:focus {
+            color:#000000;
+        }
+    </style>
+    <body>
+        <h1>Registrar novo funcionário</h1>
+        <form action = '/CadConf' method = "POST">
+
+            <label>Nome completo</label> <br/>
+            <input type = "text" id = "fnome" name = "fnome"> <br/> <br/><br/>
+
+            <label>RG</label><br/>
+            <input type = "text" id = "frg" name = "frg"> <br/> <br/><br/>
+
+            <labe>CPF</label><br/>
+            <input type = "text" id = "fcpf" name = "fcpd"> <br/> <br/><br/>
+
+            <label>Salário</label><br/>
+            <input type = "text" id = "fsalario" name = "fsalario"> <br/> <br/><br/>
+
+            <label>Cargo</label><br/>
+            <input type = "text" id = "fcargo" name = "fcargo"> <br/> <br/><br/>
+
+            <button type = "submit">Registrar</button>
+    </body>
+</html>

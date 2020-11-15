@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Deletar Funcionários</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 90%;
+            }
+            td, th {
+                border: 1px solid black;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            .btn, .btn2 {
+                cursor: pointer;
+                font-size: 16px;  
+                border: none;
+                outline: none;
+                color: black;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+            tr.desativo{
+                color: #d3d3d3;
+            }
+            .searchBox {
+                position:absolute;
+                top: -4%;
+                left: 75%;
+                transform:  translate(-50%,50%);
+                background: inherit;
+                height: 40px;
+                border-radius: 40px;
+                padding: 10px;
+            }
+            .searchBox:hover > .searchInput {
+                width: 240px;
+                padding: 0 6px;
+            }
+            .searchBox:hover > .searchButton {
+                background: inherit;
+                color : black;
+            }
+            .searchButton {
+                color: black;
+                float: right;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s;
+            }
+            .searchInput {
+                border:none;
+                background: inherit;
+                outline:none;
+                float:left;
+                padding: 0;
+                color: white;
+                font-size: 16px;
+                transition: 0.4s;
+                line-height: 40px;
+                width: 0px;
+            }
+            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: black;
+                opacity: 1; /* Firefox */
+            }
+            input, select, textarea{
+                color:#C0C0C0;
+            }
+            textarea:focus, input:focus {
+                color:#000000;
+            }
+            
+        </style>
+        <body>
+            <h2>Funcionarios</h2>
+            <table id = 'tabela' >
+              <tr>
+                <th>Nome</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Salário</th>
+                <th>Cargo</th>
+              </tr>
+              <tr>
+                <td>Filipe Mário Souza</td> 
+                <td>368837348</td>
+                <td>59625137548</td>
+                <td>2100</td>
+                <td>Médico</td>
+              </tr>
+              <tr>
+                <td>Esther Marcela Nina Viana</td>
+                <td>448275119</td>
+                <td>40654213810</td>
+                <td>esthermarcelaninaviana@yahoo.com</td>
+                <td>Secretária</td>
+              </tr>
+              <tr>
+                <td>Marcela Aparecida da Cunha</td>
+                <td>222267227</td>
+                <td>63073061061</td>
+                <td>marcelaaparecidadacunha@hotmail.com</td>
+                <td>Secretária</td>
+              </tr>
+            </table>
+            <br>
+            <a href="/home" method = "POST"><button>Voltar</button></a>
+        </body>
+    </html>
