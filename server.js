@@ -97,6 +97,8 @@ app.get('/editP', (req,res) => {
 	res.render('editP.ejs')
 });
 
+
+
 app.route('/confCad')
 	.post((req, res,next) => {
   		res.render('confCad.ejs');
@@ -109,3 +111,11 @@ app.route('/confCad')
   		var entrada = { Nome : nome, CPF : cpf ,RG : rg, Email : email ,Nascimento : data, convenio : convenio ,};
   		console.log("Entrada no DB,quando implementado: ",entrada);
 	});
+
+//relatorio func
+app.get('/relatFunc', (req,res) => {
+	res.render('relatFunc.ejs')
+});
+app.get('/examesT', (req,res) => {
+	res.render('examesT.ejs')
+});
