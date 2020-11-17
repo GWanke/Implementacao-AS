@@ -19,9 +19,7 @@ td, th {
   padding: 8px;
 }
 
-/*tr:nth-child(even) {
-  background-color: #d3d3d3;
-}*/
+
 .btn, .btn2 {
   cursor: pointer;
   font-size: 16px;  
@@ -33,7 +31,7 @@ td, th {
   font-family: inherit;
   margin: 0;
 }
-tr.desativo{
+.desativo{
   color: #d3d3d3;
 }
 .searchBox {
@@ -96,8 +94,8 @@ textarea:focus, input:focus {
     color:#000000;
 }
 
+
 </style>
-</head>
 <body>
 
 <h2>Pacientes</h2>
@@ -126,10 +124,10 @@ textarea:focus, input:focus {
     <td>28/03/1984</td>
     <td>Unimed</td>
     <td>Ativo</td>
-    <td><button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(1,this)'>  
-      <i class="fa fa-times-rectangle-o"></i></button>
-      <button class="btn" onclick = "window.location.href ='/editP';">
-      <i class="fa fa-edit " ></i></button></td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/01';">
+        <i class="fa fa-edit " ></i></button>
+    <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(1,this)'>  
+      <i class="fa fa-times-rectangle-o"></i></button></td>
   </tr>
   <tr>
     <td>Fedro dos Santos</td>
@@ -139,10 +137,10 @@ textarea:focus, input:focus {
     <td>13/05/1994</td>
     <td>Sulamerica</td>
     <td>Ativo</td>
-    <td><button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(2,this)'>  
-        <i class="fa fa-times-rectangle-o"></i></button>
-        <button class="btn" onclick = "window.location.href ='/editP';">
-      <i class="fa fa-edit " ></i></button></td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/02';">
+          <i class="fa fa-edit " ></i></button>
+        <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(2,this)'>  
+          <i class="fa fa-times-rectangle-o"></i></button></td>
   </tr>
   <tr>
     <td>Pauliane de Freitas</td>
@@ -150,14 +148,14 @@ textarea:focus, input:focus {
     <td>856328956</td>
     <td>Freitas82@outlook.com</td>
     <td>28/03/1982</td>
-    <td>-</td>
+    <td>N.D.A</td>
     <td>Ativo</td>
-    <td><button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(3,this)'>  
-          <i class="fa fa-times-rectangle-o"></i></button>
-        <button class="btn" onclick = "window.location.href ='/editP';">
-          <i class="fa fa-edit " ></i></button></td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/03';">
+        <i class="fa fa-edit " ></i></button>
+      <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(3,this)'>  
+        <i class="fa fa-times-rectangle-o"></i></button></td>
   </tr>
-  <tr class="desativo" id='des1'>
+  <tr class="desativo">
     <td>Claudecir de Oliveira</td>
     <td>14598385392</td>
     <td>096439862</td>
@@ -165,12 +163,12 @@ textarea:focus, input:focus {
     <td>02/11/2005</td>
     <td>Bradesco</td>
     <td>Desativo</td>
-    <td><button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(4,this)'>  
-        <i class="fa fa-check-square-o"></i></button>
-      <button class="btn" onclick = "window.location.href ='/editP';">
-        <i class="fa fa-edit " ></i></button></td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/04';">
+          <i class="fa fa-edit " ></i></button>
+        <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(4,this)'>  
+          <i class="fa fa-check-square-o"></i></button></td>
   </tr>
-  <tr class="desativo" id = 'des2'>
+  <tr class="desativo">
     <td>Ramone Rodrigues de Souza</td>
     <td>87632189467</td>
     <td>846291730</td>
@@ -178,10 +176,10 @@ textarea:focus, input:focus {
     <td>08/10/1972</td>
     <td>Amil</td>
     <td>Desativo</td>
-    <td><button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(5,this)'>  
-          <i class="fa fa-check-square-o"></i></button>
-        <button class="btn" onclick = "window.location.href ='/editP';">
-          <i class="fa fa-edit " ></i></button></td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/05';">
+          <i class="fa fa-edit " ></i></button>
+        <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(5,this)'>  
+          <i class="fa fa-check-square-o"></i></button></td>
   </tr>
 </table>
 <br>
@@ -191,7 +189,6 @@ textarea:focus, input:focus {
     const prioridade = "<%=prioridade%>";
     const botoes = document.getElementById('tabela').querySelectorAll(".btn2")
     const desativos=document.getElementById('tabela').querySelectorAll(".desativo");
-
     if (prioridade === "Secretaria"){
       botoes.forEach(botao => {
         botao.style.display = 'none';
@@ -201,7 +198,7 @@ textarea:focus, input:focus {
       });
     } 
   }
-  function mudaClasse(linha,botao){   
+  function mudaClasse(linha,botao){    
     document.getElementById('tabela').rows[linha].classList.toggle('desativo');
       if (document.getElementById('tabela').rows[linha].cells[6].innerHTML === 'Ativo'){
         document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Desativo';

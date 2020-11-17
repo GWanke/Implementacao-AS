@@ -92,11 +92,12 @@ app.route('/leituraP')
 app.get('/home', (req,res) => {
  	res.render(controleAcesso.prioridade.path());
 });
-
-app.get('/editP', (req,res) => {
-	res.render('editP.ejs')
+//id provem da URL. No momento hard-coded.Facil transicao no futuro com mongo.
+app.route('/editP/:id') 
+	.get((req,res) => {
+		var id = req.params.id
+		res.render('editP.ejs', {id:id});
 });
-
 
 
 app.route('/confCad')
