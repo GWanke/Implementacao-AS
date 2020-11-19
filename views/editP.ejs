@@ -29,6 +29,20 @@ td, th {
   clear: both;
 }
 
+.btn {
+  cursor: pointer;
+  font-size: 16px;  
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+
+
+
 </style>
 <body>
 	<h2>Editar Paciente <%=id%></h2>
@@ -52,6 +66,56 @@ td, th {
         <button type="submit">Salvar</button> 
     </form>
 </div>
+	<h2>Histórico do Paciente</h2>
+	<table id = 'tabela' >
+  <tr>
+    <th>Exame</th>
+    <th>Amostra</th>
+    <th>Data Colheira de Amostra</th>
+    <th>Status</th>
+    <th>Ações</th>
+  </tr>
+  <tr>
+    <td>Hemograma,Colesterol e Acido úrico</td> 
+    <td>Sanguínea</td>
+    <td>17/11/2020</td>
+    <td>Em Análise</td>
+    <td><button class="btn" onclick = "window.location.href ='#';">Exportar Resultado
+        	<i class="fa fa-file-pdf-o" ></i></button>
+    	<button class="btn" onclick = "window.location.href ='#';">Encaminhar por Email  
+      		<i class="fa fa-envelope"></i></button>
+      	<button class="btn" onclick = "window.location.href ='#';">Solicitar Checagem  
+      		<i class="fa fa-flag-o"></i></button>
+      	</td>
+  </tr>
+  <tr>
+    <td>EAS</td> 
+    <td>Urina</td>
+    <td>25/04/2018</td>
+    <td>Finalizado</td>
+    <td><button class="btn" onclick = "window.location.href ='#';">Exportar Resultado
+        	<i class="fa fa-file-pdf-o" ></i></button>
+    	<button class="btn" onclick = "window.location.href ='#';">Encaminhar por Email  
+      		<i class="fa fa-envelope"></i></button>
+      	<button class="btn" onclick = "window.location.href ='#';">Solicitar Checagem  
+      		<i class="fa fa-flag-o"></i></button>
+      	</td>
+  </tr>
+  <tr>
+    <td>Parasitológico</td> 
+    <td>Fezes</td>
+    <td>22/03/2017</td>
+    <td>Finalizado</td>
+    <td><button class="btn" onclick = "window.location.href ='#';">Exportar Resultado
+        	<i class="fa fa-file-pdf-o" ></i></button>
+    	<button class="btn" onclick = "window.location.href ='#';">Encaminhar por Email  
+      		<i class="fa fa-envelope"></i></button>
+      	<button class="btn" onclick = "window.location.href ='#';">Solicitar Checagem  
+      		<i class="fa fa-flag-o"></i></button>
+      	</td>
+  </tr>
+</table>
+
     <a href="/home" method = "POST"><button>Voltar</button></a>
 <script>
 //preenche tabela com as entradas.
@@ -99,6 +163,15 @@ window.onload=function(){
 			form[4].placeholder = '08/10/1972'
 			form[5].placeholder = 'Amil'
 			break;
+		}
+	const linhas = document.getElementById('tabela').rows;
+	for (i=1 ; i<linhas.length ; i++){
+		if (linhas[i].cells[3].innerHTML !== 'Finalizado'){
+			const botoes = linhas[i].querySelectorAll(".btn")
+			botoes.forEach(botao => {
+        		botao.style.display = 'none';
+      		});
+		}
 	}
 }
 </script>

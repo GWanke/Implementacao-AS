@@ -189,7 +189,7 @@ textarea:focus, input:focus {
     const prioridade = "<%=prioridade%>";
     const botoes = document.getElementById('tabela').querySelectorAll(".btn2")
     const desativos=document.getElementById('tabela').querySelectorAll(".desativo");
-    if (prioridade === "Secretaria"){
+    if (prioridade !== "ADM"){
       botoes.forEach(botao => {
         botao.style.display = 'none';
       });
