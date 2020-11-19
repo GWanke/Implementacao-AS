@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de medicos</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <h2>Registrar Medico<h2>
+    <form action="/confCad" method="POST">
+        <input type="text" placeholder="Nome Exame." name="nome" id = "name" pattern="^[a-zA-Z]+$" required>
+        <input type="text" placeholder="Tipo de Exame" name="CPF" id = "CPF" pattern = "^[0-9]{9}$" required>
+        <input type="text" placeholder="Preço" name="CPF" id = "CPF" pattern = "^[0-9]{9}$" required>
+        <input list="convenios" placeholder= "Convênio de Exame" name="convenio" id = "convenio" /></label>
+        <datalist id="convenios">
+            <option value="N.D.A">
+            <option value="Unimed">
+            <option value="Bradesco">
+            <option value="Sulamerica">
+            <option value="Judicimed">
+            <option value="Amil">
+        </datalist>
+        <br>  
+        <button type="submit">Registrar</button> 
+    </form>
+    <br>
+    <a href="/home" method = "POST"><button>Voltar</button></a>
+</body>
+</html>

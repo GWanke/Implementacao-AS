@@ -73,14 +73,24 @@ app.route('/')
 		if (login == "login3" && senha == "senha3"){
 			controleAcesso.setStrategy(agente)
 		}
-		res.redirect('home')
+		res.redirect('home')	
 })
 
 
-app.route('/CadastroP')       
+	app.route('/CadastroP')       
 	.get((req,res) => {
  		res.render('CadastroP.ejs');    //nao precisa de controle de acesso.
- 	});
+	 });
+	 
+	 app.route('/CadastroM')       
+	 .get((req,res) => {
+		  res.render('CadastroM.ejs');    //nao precisa de controle de acesso.
+	  });
+
+	  app.route('/CadastroE')       
+	  .get((req,res) => {
+		   res.render('CadastroE.ejs');    //nao precisa de controle de acesso.
+	   });
 
 app.route('/leituraP')
 	.get ((req,res) => {
@@ -88,6 +98,17 @@ app.route('/leituraP')
 		res.render('leituraP.ejs',{prioridade:controleAcesso.prioridade.path().slice(4,-1).replace('.ej','').trim()});
 	});
 
+	app.route('/leituraPreco')
+	.get ((req,res) => {
+		// passa a prioridade do user para o gerenciamento de funcionalidades.
+		res.render('leituraPreco.ejs',{prioridade:controleAcesso.prioridade.path().slice(4,-1).replace('.ej','').trim()});
+	});
+
+	app.route('/leituraM')
+	.get ((req,res) => {
+		// passa a prioridade do user para o gerenciamento de funcionalidades.
+		res.render('leituraM.ejs',{prioridade:controleAcesso.prioridade.path().slice(4,-1).replace('.ej','').trim()});
+	});
 
 app.get('/home', (req,res) => {
  	res.render(controleAcesso.prioridade.path());
@@ -112,6 +133,7 @@ app.route('/confCad')
   		var entrada = { Nome : nome, CPF : cpf ,RG : rg, Email : email ,Nascimento : data, convenio : convenio ,};
   		console.log("Entrada no DB,quando implementado: ",entrada);
 	});
+
 
 //relatorio func
 app.get('/relatFunc', (req,res) => {

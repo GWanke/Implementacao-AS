@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Listagem de Pacientes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+
+.btn, .btn2 {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.desativo{
+  color: #d3d3d3;
+}
+.searchBox {
+    position:absolute;
+    top: -4%;
+    left: 75%;
+    transform:  translate(-50%,50%);
+    background: inherit;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: inherit;
+  color : black;
+}
+
+.searchButton {
+    color: black;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border:none;
+    background: inherit;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+input, select, textarea{
+    color:#C0C0C0;
+}
+
+textarea:focus, input:focus {
+    color:#000000;
+}
+
+
+</style>
+<body>
+
+<h2>Pacientes</h2>
+<div class="searchBox">
+  <input class="searchInput"type="text" placeholder="Procurar..(nome,CPF)">
+  <button class="searchButton" href="#">
+    <i class="fa fa-search"></i>
+      </button>
+        </div>
+<table id = 'tabela' >
+  <tr>
+    <th>Nome</th>
+    <th>CPF</th>
+    <th>RG</th>
+    <th>Convênio</th>
+    <th>Status</th>
+    <th>Ações</th>
+  </tr>
+  <tr>
+    <td>Alfredo de Lima Bueno</td> 
+    <td>08495307090</td>
+    <td>072040356</td>
+    <td>Unimed</td>
+    <td>Ativo</td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/01';">
+        <i class="fa fa-edit " ></i></button>
+    <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(1,this)'>  
+      <i class="fa fa-times-rectangle-o"></i></button></td>
+  </tr>
+  <tr>
+    <td>Fedro dos Santos</td>
+    <td>40409945721</td>
+    <td>567908432</td>
+    <td>Sulamerica</td>
+    <td>Ativo</td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/02';">
+          <i class="fa fa-edit " ></i></button>
+        <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(2,this)'>  
+          <i class="fa fa-times-rectangle-o"></i></button></td>
+  </tr>
+  <tr>
+    <td>Pauliane de Freitas</td>
+    <td>87519538209</td>
+    <td>856328956</td>
+    <td>N.D.A</td>
+    <td>Ativo</td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/03';">
+        <i class="fa fa-edit " ></i></button>
+      <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(3,this)'>  
+        <i class="fa fa-times-rectangle-o"></i></button></td>
+  </tr>
+  <tr class="desativo">
+    <td>Claudecir de Oliveira</td>
+    <td>14598385392</td>
+    <td>096439862</td>
+    <td>Bradesco</td>
+    <td>Desativo</td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/04';">
+          <i class="fa fa-edit " ></i></button>
+        <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(4,this)'>  
+          <i class="fa fa-check-square-o"></i></button></td>
+  </tr>
+  <tr class="desativo">
+    <td>Ramone Rodrigues de Souza</td>
+    <td>87632189467</td>
+    <td>846291730</td>
+    <td>Amil</td>
+    <td>Desativo</td>
+    <td><button class="btn" onclick = "window.location.href ='/editP/05';">
+          <i class="fa fa-edit " ></i></button>
+        <button class="btn2" onclick = 'if(window.confirm("Mudar estado logico do Paciente?")) mudaClasse(5,this)'>  
+          <i class="fa fa-check-square-o"></i></button></td>
+  </tr>
+</table>
+<br>
+<a href="/home" method = "POST"><button>Voltar</button></a>
+<script>
+  window.onload=function(){
+    const prioridade = "<%=prioridade%>";
+    const botoes = document.getElementById('tabela').querySelectorAll(".btn2")
+    const desativos=document.getElementById('tabela').querySelectorAll(".desativo");
+    if (prioridade === "Secretaria"){
+      botoes.forEach(botao => {
+        botao.style.display = 'none';
+      });
+      desativos.forEach(desativo => {
+        desativo.style.display = 'none';
+      });
+    } 
+  }
+  function mudaClasse(linha,botao){    
+    document.getElementById('tabela').rows[linha].classList.toggle('desativo');
+      if (document.getElementById('tabela').rows[linha].cells[6].innerHTML === 'Ativo'){
+        document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Desativo';
+        botao.innerHTML ='<i class="fa fa-check-square-o"></i>' 
+      }
+      else {
+        document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Ativo';
+        botao.innerHTML ='<i class="fa fa-times-rectangle-o"></i>'
+      }
+    }
+</script>
+</body>
+</html>
