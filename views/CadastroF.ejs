@@ -26,23 +26,25 @@
     </style>
     <body>
         <h1>Registrar novo funcionário</h1>
-        <form action = '/CadConf' method = "POST">
+        <form action = '/confirm' method = "POST">
 
             <label>Nome completo</label> <br/>
-            <input type = "text" id = "fnome" name = "fnome"> <br/> <br/><br/>
+            <input type = "text" id = "fnome" name = "nome"> <br/> <br/><br/>
 
             <label>RG</label><br/>
-            <input type = "text" id = "frg" name = "frg"> <br/> <br/><br/>
+            <input type = "text" placeholder = "SOMENTE NUMEROS" id = "frg" name = "rg" pattern = "^[0-9]{9}$" oninvalid="this.setCustomValidity('DIGITE APENAS NUMEROS')"> <br/> <br/><br/>
 
-            <labe>CPF</label><br/>
-            <input type = "text" id = "fcpf" name = "fcpd"> <br/> <br/><br/>
+            <label>CPF</label><br/>
+            <input type = "text" placeholder = "SOMENTE NUMEROS" id = "fcpf" name = "cpf" pattern = "^[0-9]{9}$" oninvalid="this.setCustomValidity('DIGITE APENAS NUMEROS')"> <br/> <br/><br/>
 
             <label>Salário</label><br/>
-            <input type = "text" id = "fsalario" name = "fsalario"> <br/> <br/><br/>
+            <input type = "text" id = "fsalario" name = "salario"> <br/> <br/><br/>
 
             <label>Cargo</label><br/>
-            <input type = "text" id = "fcargo" name = "fcargo"> <br/> <br/><br/>
+            <input type = "text" id = "fcargo" name = "cargo"> <br/> <br/><br/>
 
-            <button type = "submit">Registrar</button>
+            <button type = "submit">Registrar</button><br/><br/>
+        </form>
+        <a href='/home' method = "POST"><button>Voltar</button></a>
     </body>
 </html>

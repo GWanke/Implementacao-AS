@@ -87,12 +87,6 @@
         </style>
     <body>
         <h2>Funcionarios</h2>
-        <div class="searchBox">
-          <input class="searchInput"type="text" placeholder="Procurar..(nome,CPF)">
-          <button class="searchButton" href="#">
-            <i class="fa fa-search"></i>
-              </button>
-                </div>
         <table id = 'tabela' >
           <tr>
             <th>Nome</th>
@@ -107,52 +101,66 @@
             <td>368837348</td>
             <td>59625137548</td>
             <td>2100</td>
-            <td>Médico</td>
+            <td>Técnico</td>
             <td>Ativo</td>
-            <td><button class="btn2" onclick = 'if(window.confirm("Deletar registro do Funcionário?")) mudaClasse(1,this)'>  
+            <td><button class="btn2" onclick = 'if(window.confirm("Ativar/Desativar registro do Funcionário?")) mudaClasse(1,this)'>  
               <i class="fa fa-times-rectangle-o"></i></button>
-              <button class="btn" onclick = "window.location.href ='/editF';">
-              <i class="fa fa-edit " ></i></button></td>
           </tr>
           <tr>
             <td>Esther Marcela Nina Viana</td>
             <td>448275119</td>
             <td>40654213810</td>
-            <td>esthermarcelaninaviana@yahoo.com</td>
+            <td>1900</td>
             <td>Secretária</td>
             <td>Ativo</td>
-            <td><button class="btn2" onclick = 'if(window.confirm("Deletar registro do Funcionário?")) mudaClasse(2,this)'>  
+            <td><button class="btn2" onclick = 'if(window.confirm("Ativar/Desativar registro do Funcionário?")) mudaClasse(2,this)'>  
                 <i class="fa fa-times-rectangle-o"></i></button>
-                <button class="btn" onclick = "window.location.href ='/editF';">
-              <i class="fa fa-edit " ></i></button></td>
           </tr>
           <tr>
             <td>Marcela Aparecida da Cunha</td>
             <td>222267227</td>
             <td>63073061061</td>
-            <td>marcelaaparecidadacunha@hotmail.com</td>
+            <td>1900</td>
             <td>Secretária</td>
             <td>Ativo</td>
-            <td><button class="btn2" onclick = 'if(window.confirm("Deletar registro do Funcionário?")) mudaClasse(3,this)'>  
+            <td><button class="btn2" onclick = 'if(window.confirm("Ativar/Desativar registro do Funcionário?")) mudaClasse(3,this)'>  
                   <i class="fa fa-times-rectangle-o"></i></button>
-                <button class="btn" onclick = "window.location.href ='/editF';">
-                  <i class="fa fa-edit " ></i></button></td>
+          </tr>
+          <tr>
+            <td>Felipe Shiguero Honda Watanabe</td> 
+            <td>328719072</td>
+            <td>41987239811</td>
+            <td>2100</td>
+            <td>Técnico</td>
+            <td>Ativo</td>
+            <td><button class="btn2" onclick = 'if(window.confirm("Ativar/Desativar registro do Funcionário?")) mudaClasse(4,this)'>  
+                  <i class="fa fa-times-rectangle-o"></i></button>
+          </tr>
+          <tr class = "desativo">
+            <td>Roberto da Silva</td> 
+            <td>492873193</td>
+            <td>09378429812</td>
+            <td>2100</td>
+            <td>Técnico</td>
+            <td>Desativo</td>
+            <td><button class="btn2" onclick = 'if(window.confirm("Ativar/Desativar registro do Funcionário?")) mudaClasse(5,this)'>  
+                  <i class="fa fa-times-rectangle-o"></i></button>
           </tr>
         </table>
         <br>
-        <a href="/home" method = "POST"><button>Voltar</button></a>
         <script>
           function mudaClasse(linha,botao){   
             document.getElementById('tabela').rows[linha].classList.toggle('desativo');
-              if (document.getElementById('tabela').rows[linha].cells[6].innerHTML === 'Ativo'){
-                document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Desativo';
+              if (document.getElementById('tabela').rows[linha].cells[5].innerHTML === 'Ativo'){
+                document.getElementById('tabela').rows[linha].cells[5].innerHTML = 'Desativo';
                 botao.innerHTML ='<i class="fa fa-check-square-o"></i>' 
               }
               else {
-                document.getElementById('tabela').rows[linha].cells[6].innerHTML = 'Ativo';
+                document.getElementById('tabela').rows[linha].cells[5].innerHTML = 'Ativo';
                 botao.innerHTML ='<i class="fa fa-times-rectangle-o"></i>'
               }
             }
-        </script>
+        </script><br/>
+        <a href="/home" method = "POST"><button>Voltar</button></a>
     </body>
 </html>

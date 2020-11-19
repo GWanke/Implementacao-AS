@@ -10,32 +10,99 @@ app.listen(port,function(){
     console.log("servidor na porta 3000")
 });
 
-app.set('view engine', 'ejs');
+var ControleAcesso = function(){
+	this.prioridade = '';
+};
+
+
+ControleAcesso.prototype = {
+	setStrategy: function(prioridade){
+		this.prioridade=prioridade;
+	},
+
+	path: function(){
+		return this.prioridade.path;
+	},
+};
+
+var Admin = function(){
+	this.path = function(){
+		return "homeADM.ejs"
+	}
+};
+
+var Secreataria = function(){
+	this.path = function(){
+		return "homeSecretaria.ejs"
+	}
+};
+
+var AgenteExame = function(){
+	this.path = function(){
+		return "homeAGENTE.ejs"
+	}
+};
+
+
+app.set('view engine' , 'ejs');
+
+app.get('/login', (req,res) => {
+ 	res.render('login.ejs');
+})
+
 
 app.route('/')
-    .get((req,res) => {
-        res.render('DeletarF.ejs');
-    });
-
-app.get('/editF', (req,res) => {
-    res.render('editF.ejs')
+	.get((req, res) => {
+		res.redirect('login')
+	})
+	//STRATEGY PATTERN APLICADO
+	.post((req,res) => {
+		var login = req.body.uname;
+			senha = req.body.psw;
+			controleAcesso = new ControleAcesso();
+			admin = new Admin();
+			secretaria = new Secreataria();
+			agente = new AgenteExame();
+		if (login == "login" && senha == "senha"){
+			controleAcesso.setStrategy(admin);
+		}
+		if (login == "login2" && senha == "senha2"){
+			controleAcesso.setStrategy(secretaria);
+		}
+		if (login == "login3" && senha == "senha3"){
+			controleAcesso.setStrategy(agente)
+		}
+		res.redirect('home')
 });
 
-app.get('/listF',(req,res) => {
+app.get('/home', (req,res) => {
+    res.render(controleAcesso.prioridade.path());
+});
+
+app.route('/cadastroF').get((req,res) => {
+    res.render('cadastroF.ejs')
+});
+
+app.route('/deleteF').get((req,res) => {
+    res.render('DeletarF.ejs')
+});
+
+app.route('/show').get((req,res) => {
     res.render('listF.ejs')
 });
 
-app.get('/relatoriosF',(req,res)=>{
+app.route('/relatMen').get((req,res) => {
     res.render('relatorios.ejs')
 });
 
-app.route('/CadConf')
+app.route('/confirm')
     .post((req, res,next) => {
-          var nome = req.body.fnome;
-          var cpf = req.body.fcpf
-          var rg = req.body.frg
-          var salario = req.body.fsalario
-          var cargo = req.body.cargo
-          var entrada = { Nome : fnome, CPF : fcpf ,RG : frg, Salario: fsalario , Cargo: fcargo};
-          console.log("Entrada no DB,quando implementado: ",entrada);
+        res.render('CadConf.ejs')
+        var nome = req.body.nome
+        var cpf = req.body.cpf
+        var rg = req.body.rg
+        var salario = req.body.salario
+        var cargo = req.body.cargo
+        var entrada = { Nome : nome, CPF : cpf ,RG : rg, Salario: salario , Cargo: cargo};
+  		console.log("Entrada no DB,quando implementado: ",entrada);
     });
