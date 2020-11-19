@@ -82,20 +82,32 @@ app.route('/')
  		res.render('CadastroP.ejs');    //nao precisa de controle de acesso.
 	 });
 	 
-	 app.route('/CadastroM')       
+	app.route('/CadastroM')       
 	 .get((req,res) => {
 		  res.render('CadastroM.ejs');    //nao precisa de controle de acesso.
 	  });
 
-	  app.route('/CadastroE')       
+	app.route('/CadastroE')       
 	  .get((req,res) => {
 		   res.render('CadastroE.ejs');    //nao precisa de controle de acesso.
 	   });
+	app.route('/CadastroA')       
+	   .get((req,res) => {
+			res.render('CadastroA.ejs');    //nao precisa de controle de acesso.
+		});
+
+		
 
 app.route('/leituraP')
 	.get ((req,res) => {
 		// passa a prioridade do user para o gerenciamento de funcionalidades.
 		res.render('leituraP.ejs',{prioridade:controleAcesso.prioridade.path().slice(4,-1).replace('.ej','').trim()});
+	});
+
+	app.route('/deleteA')
+	.get ((req,res) => {
+		// passa a prioridade do user para o gerenciamento de funcionalidades.
+		res.render('deleteA.ejs',{prioridade:controleAcesso.prioridade.path().slice(4,-1).replace('.ej','').trim()});
 	});
 
 	app.route('/leituraPreco')
